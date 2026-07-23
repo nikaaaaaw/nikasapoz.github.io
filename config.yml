@@ -13,6 +13,109 @@ color_scheme: auto
 # Plugins 
 # -----------------------------------------------------------------------------
 plugins:
+  - YouTubeChannelLatestVideoPlugin:
+      - "@nikasapoz"
+
+# -----------------------------------------------------------------------------
+# Tracking
+# -----------------------------------------------------------------------------
+google_analytics_id:
+
+# -----------------------------------------------------------------------------
+# Profile header
+# -----------------------------------------------------------------------------
+title: "ניקה ספוז"
+avatar: "./veronika.jpg"
+name: "@nikasapoz"
+tagline: "סטרימרית | בואו ללייבים ב-Kick!"
+
+# -----------------------------------------------------------------------------
+# Links
+# -----------------------------------------------------------------------------
+links:
+  - link:
+      icon: "fa-brands fa-kickstarter-k"
+      text: "ערוץ ה-Kick (לייבים!)"
+      url: "https://kick.com/nikasapoz"
+      alt: "ערוץ הקיק של ניקה"
+      title: "קיק - ניקה ספוז"
+      target: "_blank"
+
+  - link:
+      icon: "fa-brands fa-youtube"
+      text: "ערוץ היוטיוב שלי"
+      url: "https://www.youtube.com/@nikasapoz"
+      alt: "ערוץ היוטיוב של ניקה"
+      title: "יוטיוב - ניקה ספוז"
+      target: "_blank"
+      
+  - link:
+      icon: "fa-solid fa-play"
+      text: "הסרטון האחרון שלי: {{ vars.YouTubeChannelLatestVideoPlugin['@nikasapoz'].title }}"
+      url: "{{ vars.YouTubeChannelLatestVideoPlugin['@nikasapoz'].url }}"
+      alt: "הסרטון האחרון ביוטיוב"
+      title: "צפו בסרטון האחרון"
+      target: "_blank"
+
+  - link:
+      icon: "fa-brands fa-discord"
+      text: "בואו לשרת הדיסקורד שלנו"
+      url: "https://discord.gg/rnmXVk3tuM"
+      alt: "דיסקורד"
+      title: "הצטרפו לדיסקורד"
+      target: "_blank"
+
+# -----------------------------------------------------------------------------
+# Social media buttons
+# -----------------------------------------------------------------------------
+socials:
+  - social:
+      icon: "fa-brands fa-youtube"
+      url: "https://www.youtube.com/@nikasapoz"
+      title: "יוטיוב"
+      alt: "יוטיוב"
+      target: "_blank"
+  - social:
+      icon: "fa-brands fa-kickstarter-k"
+      url: "https://kick.com/nikasapoz"
+      title: "קיק"
+      alt: "קיק"
+      target: "_blank"
+  - social:
+      icon: "fa-brands fa-discord"
+      url: "https://discord.gg/rnmXVk3tuM" 
+      title: "דיסקורד"
+      alt: "דיסקורד"
+      target: "_blank"
+  - social:
+      icon: "fa-brands fa-instagram"
+      url: "https://www.instagram.com/veronika_sapoz/" 
+      title: "אינסטגרם"
+      alt: "אינסטגרם"
+      target: "_blank"
+
+# -----------------------------------------------------------------------------
+# Footer 
+# -----------------------------------------------------------------------------
+footer: >
+    נתראה בלייב הבא! 💜
+
+copyright: >
+  © {{ year }} ניקה ספוז. נבנה באמצעות linkyee# =============================================================================
+# linkyee — Site Configuration
+# =============================================================================
+
+# Theme 
+theme: glassmorphism
+
+lang: "he"
+
+color_scheme: auto
+
+# -----------------------------------------------------------------------------
+# Plugins 
+# -----------------------------------------------------------------------------
+plugins:
   # מושך את הסרטון האחרון שלך מהיוטיוב ומציג אותו אוטומטית
   - YouTubeChannelLatestVideoPlugin:
       - "@nikasapoz"
