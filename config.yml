@@ -26,7 +26,7 @@ google_analytics_id:
 # Profile header
 # -----------------------------------------------------------------------------
 title: "Nika Sapoz"
-avatar: "./images/profile.jpg" # ודאי שזה השם המדויק של התמונה שהעלית
+avatar: "./images/veronika.jpg"
 name: "@nikasapoz"
 tagline: "סטרימרית | בואו ללייבים ב-Kick!"
 
@@ -36,7 +36,7 @@ tagline: "סטרימרית | בואו ללייבים ב-Kick!"
 links:
   - link:
       icon: "fa-brands fa-kickstarter-k"
-      text: "הערוץ שלי ב-Kick (לייבים!)"
+      text: "ערוץ ה-Kick (לייבים!)"
       url: "https://kick.com/nikasapoz"
       alt: "ערוץ הקיק של ניקה"
       title: "Kick - Nika Sapoz"
@@ -63,7 +63,7 @@ links:
   - link:
       icon: "fa-brands fa-discord"
       text: "בואו לשרת הדיסקורד שלנו"
-      url: "https://discord.gg/YOUR_INVITE_LINK" # <--- אל תשכחי לשים פה את הלינק לדיסקורד שלך!
+      url: "https://discord.gg/rnmXVk3tuM"
       alt: "דיסקורד"
       title: "הצטרפו לדיסקורד"
       target: "_blank"
@@ -86,119 +86,13 @@ socials:
       target: "_blank"
   - social:
       icon: "fa-brands fa-discord"
-      url: "https://discord.gg/YOUR_INVITE_LINK" # <--- שוב, הלינק לדיסקורד
+      url: "https://discord.gg/rnmXVk3tuM" 
       title: "Discord"
       alt: "Discord"
       target: "_blank"
   - social:
       icon: "fa-brands fa-instagram"
-      url: "https://instagram.com/YOUR_INSTAGRAM_NAME" # <--- אם יש לך אינסטגרם, תוסיפי פה. אם לא, את יכולה למחוק את הבלוק הזה.
-      title: "Instagram"
-      alt: "Instagram"
-      target: "_blank"
-
-# -----------------------------------------------------------------------------
-# Footer 
-# -----------------------------------------------------------------------------
-footer: >
-    נתראה בלייב הבא! 💜
-
-copyright: >
-  © {{ year }} Nika Sapoz. Powered by linkyee# =============================================================================
-# linkyee — Site Configuration
-# =============================================================================
-
-# Theme 
-theme: glassmorphism
-
-lang: "he"
-
-color_scheme: auto
-
-# -----------------------------------------------------------------------------
-# Plugins 
-# -----------------------------------------------------------------------------
-plugins:
-  # מושך את הסרטון האחרון שלך מהיוטיוב ומציג אותו אוטומטית
-  - YouTubeChannelLatestVideoPlugin:
-      - "@nikasapoz"
-
-# -----------------------------------------------------------------------------
-# Tracking
-# -----------------------------------------------------------------------------
-google_analytics_id:
-
-# -----------------------------------------------------------------------------
-# Profile header
-# -----------------------------------------------------------------------------
-title: "Nika Sapoz"
-avatar: "./images/profile.jpg" # ודאי שזה השם המדויק של התמונה שהעלית
-name: "@nikasapoz"
-tagline: "סטרימרית | בואו ללייבים ב-Kick!"
-
-# -----------------------------------------------------------------------------
-# Links
-# -----------------------------------------------------------------------------
-links:
-  - link:
-      icon: "fa-brands fa-kickstarter-k"
-      text: "הערוץ שלי ב-Kick (לייבים!)"
-      url: "https://kick.com/nikasapoz"
-      alt: "ערוץ הקיק של ניקה"
-      title: "Kick - Nika Sapoz"
-      target: "_blank"
-
-  - link:
-      icon: "fa-brands fa-youtube"
-      text: "ערוץ היוטיוב שלי"
-      url: "https://www.youtube.com/@nikasapoz"
-      alt: "ערוץ היוטיוב של ניקה"
-      title: "YouTube - Nika Sapoz"
-      target: "_blank"
-      
-  # הפלאגין של יוטיוב ששמנו למעלה - יציג פה את הסרטון הכי חדש שלך!
-  - link:
-      icon: "fa-solid fa-play"
-      text: "הסרטון האחרון שלי: {{ vars.YouTubeChannelLatestVideoPlugin['@nikasapoz'].title }}"
-      url: "{{ vars.YouTubeChannelLatestVideoPlugin['@nikasapoz'].url }}"
-      alt: "הסרטון האחרון ביוטיוב"
-      title: "צפו בסרטון האחרון"
-      target: "_blank"
-      latest: true
-
-  - link:
-      icon: "fa-brands fa-discord"
-      text: "בואו לשרת הדיסקורד שלנו"
-      url: "https://discord.gg/YOUR_INVITE_LINK" # <--- אל תשכחי לשים פה את הלינק לדיסקורד שלך!
-      alt: "דיסקורד"
-      title: "הצטרפו לדיסקורד"
-      target: "_blank"
-
-# -----------------------------------------------------------------------------
-# Social media buttons
-# -----------------------------------------------------------------------------
-socials:
-  - social:
-      icon: "fa-brands fa-youtube"
-      url: "https://www.youtube.com/@nikasapoz"
-      title: "YouTube"
-      alt: "YouTube"
-      target: "_blank"
-  - social:
-      icon: "fa-brands fa-kickstarter-k"
-      url: "https://kick.com/nikasapoz"
-      title: "Kick"
-      alt: "Kick"
-      target: "_blank"
-  - social:
-      icon: "fa-brands fa-discord"
-      url: "https://discord.gg/YOUR_INVITE_LINK" # <--- שוב, הלינק לדיסקורד
-      title: "Discord"
-      alt: "Discord"
-      target: "_blank"
-  - social:
-      icon: "fa-brands fa-instagram"
-      url: "https://instagram.com/YOUR_INSTAGRAM_NAME" # <--- אם יש לך אינסטגרם, תוסיפי פה. אם לא, את יכולה למחוק את הבלוק הזה.
+      url: "https://www.instagram.com/veronika_sapoz/" 
       title: "Instagram"
       alt: "Instagram"
       target: "_blank"
