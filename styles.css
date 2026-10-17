@@ -1,0 +1,365 @@
+:root {
+  --bg-1: #e6f3ee;
+  --bg-2: #fde9d9;
+  --shape-1: #6dd3b8;
+  --shape-2: #ffb380;
+  --shape-3: #84b9ef;
+  --fg: #0d1f2d;
+  --muted: #4a5d6e;
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.65);
+  --glass-shadow: 0 8px 32px rgba(13, 31, 45, 0.08);
+  --hover-bg: rgba(255, 255, 255, 0.75);
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+}
+
+/* Dark mode. Auto-switches via system appearance unless pinned via
+   `color_scheme: light|dark` in config.yml.
+   On dark, "frosted glass" becomes tinted-glass-on-deep-blue rather than a
+   simple invert. Ambient shapes desaturate so they feel like aurora rather
+   than pastel; glass cards become cooler and more translucent. */
+@media (prefers-color-scheme: dark) {
+  :root:not(.scheme-light) {
+    --bg-1: #0c1820;
+    --bg-2: #1a2030;
+    --shape-1: #2d8068;
+    --shape-2: #c9744a;
+    --shape-3: #4a6b9c;
+    --fg: #f0f4f8;
+    --muted: #a3b3c2;
+    --glass-bg: rgba(20, 32, 44, 0.55);
+    --glass-border: rgba(255, 255, 255, 0.10);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+    --hover-bg: rgba(30, 44, 58, 0.75);
+  }
+}
+:root.scheme-dark {
+  --bg-1: #0c1820;
+  --bg-2: #1a2030;
+  --shape-1: #2d8068;
+  --shape-2: #c9744a;
+  --shape-3: #4a6b9c;
+  --fg: #f0f4f8;
+  --muted: #a3b3c2;
+  --glass-bg: rgba(20, 32, 44, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.10);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  --hover-bg: rgba(30, 44, 58, 0.75);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #070611;
+  background-image: radial-gradient(ellipse at 50% 18%, #171028 0%, #0b0919 48%, #05040d 100%);
+  background-attachment: fixed;
+  color: var(--fg);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.55;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 48px 20px;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* Night-sky background: moving rain and twinkling stars.
+   Only the decorative backdrop changes; page content stays untouched. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 15% 24%, rgba(126, 84, 190, 0.15), transparent 48%),
+    radial-gradient(ellipse at 85% 85%, rgba(64, 80, 171, 0.15), transparent 52%);
+}
+
+.bg-shape {
+  position: fixed;
+  z-index: 0;
+  border-radius: 0;
+  filter: none;
+  opacity: 1;
+  pointer-events: none;
+}
+
+/* Foreground rain: long luminous droplets actually translate downward. */
+.bg-shape-1 {
+  left: 0;
+  right: 0;
+  top: -240px;
+  bottom: auto;
+  width: 100%;
+  height: calc(100vh + 240px);
+  background-image:
+    radial-gradient(ellipse 1px 23px at 13px 18px, rgba(226, 228, 255, .52), transparent),
+    radial-gradient(ellipse 1px 16px at 42px 107px, rgba(194, 196, 250, .37), transparent),
+    radial-gradient(ellipse 1px 27px at 69px 185px, rgba(220, 220, 255, .48), transparent),
+    radial-gradient(ellipse 1px 18px at 91px 59px, rgba(192, 205, 255, .45), transparent),
+    radial-gradient(ellipse 1px 24px at 120px 154px, rgba(239, 234, 255, .51), transparent),
+    radial-gradient(ellipse 1px 14px at 149px 218px, rgba(198, 205, 255, .40), transparent),
+    radial-gradient(ellipse 1px 29px at 174px 83px, rgba(217, 221, 255, .43), transparent);
+  background-size: 190px 240px;
+  background-repeat: repeat;
+  animation: rain-near 1.5s linear infinite;
+  will-change: transform;
+}
+
+/* Distant, finer rain moves at a different speed for depth. */
+.bg-shape-2 {
+  left: 0;
+  right: 0;
+  top: -320px;
+  bottom: auto;
+  width: 100%;
+  height: calc(100vh + 320px);
+  background-image:
+    radial-gradient(ellipse .8px 15px at 9px 70px, rgba(215, 221, 255, .27), transparent),
+    radial-gradient(ellipse .8px 19px at 53px 228px, rgba(199, 218, 255, .30), transparent),
+    radial-gradient(ellipse .8px 12px at 80px 148px, rgba(235, 221, 255, .25), transparent),
+    radial-gradient(ellipse .8px 24px at 109px 292px, rgba(211, 216, 255, .28), transparent),
+    radial-gradient(ellipse .8px 14px at 147px 19px, rgba(221, 222, 255, .30), transparent),
+    radial-gradient(ellipse .8px 18px at 180px 185px, rgba(199, 215, 255, .22), transparent),
+    radial-gradient(ellipse .8px 12px at 222px 98px, rgba(237, 233, 255, .32), transparent),
+    radial-gradient(ellipse .8px 20px at 262px 255px, rgba(208, 222, 255, .23), transparent),
+    radial-gradient(ellipse .8px 14px at 298px 45px, rgba(234, 234, 255, .29), transparent);
+  background-size: 320px 320px;
+  background-repeat: repeat;
+  animation: rain-far 2.4s linear infinite;
+  will-change: transform;
+}
+
+/* A separate twinkling star field; no GIF or static rain illusion. */
+.bg-shape-3 {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle at 7% 12%, rgba(255, 255, 255, .92) 0 1px, transparent 2px),
+    radial-gradient(circle at 18% 43%, rgba(213, 200, 255, .9) 0 1.2px, transparent 2.4px),
+    radial-gradient(circle at 31% 9%, rgba(241, 242, 255, .86) 0 1px, transparent 2px),
+    radial-gradient(circle at 48% 26%, rgba(255, 255, 255, .8) 0 1.2px, transparent 2.5px),
+    radial-gradient(circle at 64% 7%, rgba(208, 206, 255, .88) 0 1px, transparent 2px),
+    radial-gradient(circle at 81% 32%, rgba(255, 255, 255, .96) 0 1.4px, transparent 3px),
+    radial-gradient(circle at 94% 11%, rgba(216, 211, 255, .84) 0 1px, transparent 2px),
+    radial-gradient(circle at 11% 77%, rgba(255, 255, 255, .92) 0 1.2px, transparent 2.6px),
+    radial-gradient(circle at 26% 92%, rgba(211, 198, 255, .84) 0 1px, transparent 2px),
+    radial-gradient(circle at 42% 68%, rgba(250, 248, 255, .86) 0 1.4px, transparent 2.9px),
+    radial-gradient(circle at 61% 88%, rgba(233, 222, 255, .92) 0 1px, transparent 2px),
+    radial-gradient(circle at 77% 59%, rgba(255, 255, 255, .84) 0 1.3px, transparent 2.6px),
+    radial-gradient(circle at 92% 81%, rgba(210, 211, 255, .93) 0 1px, transparent 2px);
+  background-repeat: no-repeat;
+  animation: stars-twinkle 3.7s ease-in-out infinite alternate;
+}
+
+@keyframes rain-near {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(0, 240px, 0); }
+}
+@keyframes rain-far {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(0, 320px, 0); }
+}
+@keyframes stars-twinkle {
+  from { opacity: .30; }
+  to   { opacity: 1; }
+}
+
+.container {
+  width: 100%;
+  max-width: 460px;
+  position: relative;
+  z-index: 1;
+}
+
+.card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  box-shadow: var(--glass-shadow);
+}
+
+.profile-card {
+  padding: 32px 24px;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 16px;
+  display: block;
+  border: 2px solid var(--glass-border);
+}
+
+.name {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  margin-bottom: 8px;
+}
+
+.description {
+  font-size: 15px;
+  color: var(--muted);
+  text-wrap: pretty;
+  max-width: 32ch;
+  margin: 0 auto;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.link-button {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 15px 18px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--fg);
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.link-button:hover,
+.link-button:focus-visible {
+  background: var(--hover-bg);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(13, 31, 45, 0.14);
+  outline: none;
+}
+
+.link-icon {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: var(--hover-bg);
+  flex-shrink: 0;
+}
+
+.link-icon i { font-size: 14px; }
+.link-text { flex: 1; }
+.link-button-text { font-size: 13px; color: var(--muted); margin-left: 6px; }
+
+.button-container { padding: 16px; display: flex; justify-content: center; }
+
+.button-group {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.icon-button {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--fg);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.icon-button i { font-size: 17px; }
+
+.icon-button:hover,
+.icon-button:focus-visible {
+  background: var(--hover-bg);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.footer {
+  margin-top: 28px;
+  padding: 0 12px;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+  text-align: center;
+}
+
+.footer a { color: var(--fg); border-bottom: 1px solid var(--muted); }
+.copyright { margin-top: 8px; font-size: 12px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+
+@supports not (backdrop-filter: blur(20px)) {
+  .card { background: rgba(255, 255, 255, 0.85); }
+  @media (prefers-color-scheme: dark) {
+    :root:not(.scheme-light) .card { background: rgba(20, 32, 44, 0.85); }
+  }
+  :root.scheme-dark .card { background: rgba(20, 32, 44, 0.85); }
+}
+
+/* "Latest" link variant — frosted accent ring + glowing pill badge */
+.link-button.link-latest {
+  align-items: flex-start;
+  border-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 8px 32px rgba(123, 97, 255, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+.link-latest-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 3px 9px;
+  margin-right: 8px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #7b61ff 0%, #38c5ff 100%);
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
+  vertical-align: 1px;
+}
+.link-latest .link-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+          line-clamp: 2;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  line-height: 1.35;
+}
+
+/* Dark-mode override for the latest variant: the bright glass border
+   designed for the light gradient becomes harsh on deep blue, so soften
+   it and shift the glow to a cooler hue. */
+@media (prefers-color-scheme: dark) {
+  :root:not(.scheme-light) .link-button.link-latest {
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px rgba(56, 197, 255, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.10);
+  }
+}
+:root.scheme-dark .link-button.link-latest {
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px rgba(56, 197, 255, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+
+/* Don't animate the decorative weather layers for reduced-motion users. */
+@media (prefers-reduced-motion: reduce) {
+  .bg-shape-1, .bg-shape-2, .bg-shape-3 { animation: none !important; }
+}

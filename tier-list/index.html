@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>טועמים את הבלתי אפשרי • הטיר ליסט של ניקה</title>
+<meta name="description" content="10 שילובי אוכל מוזרים, טעימה אחת ודעה מאוד חזקה. הטיר ליסט של ניקה לסטרים.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<header><a class="brand" href="#">NIKA<span> / TASTE LAB</span></a><span class="episode">10 שילובים · אפס חרטות?</span></header>
+<section class="intro"><div><div class="eyebrow"><span class="dot"></span> ניסוי בטעם טוב. בערך.</div><h1>טועמים את<br><em>הבלתי אפשרי.</em></h1><p>ביס קטן, דעה גדולה. טועמים, גוררים ומחליטים:<br>גאונות קולינרית או פשע נגד האנושות?</p></div><div class="hero-sticker"><span>🍟</span><b>טעים<br>או טראומה?</b><small>THE CHAT WILL JUDGE.</small></div></section>
+<section class="workspace" aria-labelledby="board-title">
+<div class="toolbar"><div><h2 id="board-title">הטיר ליסט שלי</h2><span id="progress">0 מתוך 10 דורגו</span></div><div class="actions"><button id="undo" disabled title="ביטול הדירוג האחרון">↶ ביטול</button><button id="stream" aria-pressed="false">⛶ מצב סטרים</button><button id="export">↓ שמירת תמונה</button><button id="reset" class="subtle">איפוס</button></div></div>
+<div id="board" class="board" aria-label="טבלת דירוג"></div>
+<div class="board-footer"><span id="save-state">הדירוג נשמר אוטומטית בדפדפן הזה</span><span id="selected-status" role="status" aria-live="polite">גררי תמונה לדרגה, או לחצי על תמונה ואז על דרגה</span></div>
+</section>
+<section class="waiting" aria-labelledby="pool-title"><div class="pool-heading"><div><span class="eyebrow">על מגש הניסויים</span><h2 id="pool-title">עוד לא טעמתי <span id="remaining">10</span></h2></div><button id="shopping">🛒 מה צריך לקנות?</button></div><div id="pool" class="dropzone pool" data-zone="pool" tabindex="0" aria-label="שילובים שעוד לא דורגו"></div><p class="pool-note">שינית את דעתך? אפשר להעביר בין דרגות או להחזיר לכאן.</p></section>
+<footer><span>NIKA'S TASTE LAB</span><span>הצ׳אט בטוח יודע יותר טוב 🍿</span></footer>
+</main>
+<dialog id="reset-dialog"><h2>מתחילים טעימה חדשה?</h2><p>כל השילובים יחזרו למגש. אפשר לבטל את האיפוס עם כפתור הביטול.</p><div class="dialog-actions"><button id="cancel-reset">להמשיך לדרג</button><button id="confirm-reset" class="primary">כן, לאפס</button></div></dialog>
+<dialog id="shopping-dialog"><button class="close" aria-label="סגירה">×</button><span class="eyebrow">אותם מרכיבים, 10 ניסויים</span><h2>10 מצרכים</h2><p>כמויות קטנות מספיקות לטעימות.</p><ul><li>צ׳יפס</li><li>גלידת וניל</li><li>מלפפון חמוץ</li><li>חמאת בוטנים</li><li>אוראו</li><li>קטשופ</li><li>בננה</li><li>פופקורן</li><li>גבינה צהובה</li><li>דבש</li></ul></dialog>
+<script src="app.js"></script>
+</body></html>
